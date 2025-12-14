@@ -1,0 +1,911 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Amiri', 'Scheherazade New', 'Times New Roman', serif;
+    line-height: 2;
+    background: 
+        radial-gradient(circle at 15% 85%, rgba(139, 69, 19, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 85% 15%, rgba(218, 165, 32, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(160, 82, 45, 0.2) 0%, transparent 60%),
+        linear-gradient(135deg, #2c1810 0%, #4a2c2a 20%, #8b4513 40%, #a0522d 60%, #cd853f 80%, #daa520 100%);
+    min-height: 100vh;
+    color: #2c3e50;
+    direction: rtl;
+    position: relative;
+}
+
+.container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    background: linear-gradient(145deg, rgba(255, 248, 220, 0.95), rgba(250, 240, 190, 0.9));
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 
+        0 15px 35px rgba(139, 69, 19, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(184, 134, 11, 0.3);
+    position: relative;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #d4af37, #b8860b, #daa520, #cd853f);
+    border-radius: 27px;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+header h1 {
+    font-size: 3.4rem;
+    color: #8b4513;
+    margin-bottom: 25px;
+    text-shadow: 
+        4px 4px 8px rgba(139, 69, 19, 0.5),
+        0 0 30px rgba(218, 165, 32, 0.6),
+        0 0 50px rgba(255, 215, 0, 0.3);
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    font-size: 1.6rem;
+    color: #a0522d;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.3);
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+main {
+    display: grid;
+    gap: 25px;
+}
+
+.card {
+    background: linear-gradient(145deg, rgba(255, 248, 220, 0.95), rgba(250, 235, 215, 0.9));
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 
+        0 12px 35px rgba(139, 69, 19, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: visible;
+}
+
+
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(139, 69, 19, 0.25),
+        0 0 30px rgba(218, 165, 32, 0.1);
+}
+
+.card h2 {
+    color: #8b4513;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 4px solid #d4af37;
+    text-align: center;
+    text-shadow: 3px 3px 6px rgba(139, 69, 19, 0.4);
+    font-weight: 800;
+    position: relative;
+    letter-spacing: 2px;
+}
+
+
+
+.card:not(:has(h2)) .verse {
+    margin-top: 0;
+}
+
+.verse {
+    font-size: 1.8rem;
+    line-height: 2.8;
+    color: #2a2a2a;
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 35px;
+    background: linear-gradient(135deg, rgba(255, 248, 220, 0.9), rgba(245, 222, 179, 0.7));
+    border-radius: 25px;
+    border-right: 8px solid #d4af37;
+    border-left: 3px solid rgba(212, 175, 55, 0.5);
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9);
+    position: relative;
+    box-shadow: 
+        inset 0 3px 8px rgba(212, 175, 55, 0.15),
+        0 4px 15px rgba(139, 69, 19, 0.1);
+}
+
+
+
+
+
+.reference {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #a0522d;
+    font-style: italic;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background: rgba(218, 165, 32, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(218, 165, 32, 0.2);
+    display: inline-block;
+    font-weight: 500;
+}
+
+.highlight {
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.15), rgba(218, 165, 32, 0.1));
+    border: 2px solid #daa520;
+    box-shadow: 
+        0 12px 35px rgba(218, 165, 32, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.highlight::before {
+    background: linear-gradient(90deg, #ffd700, #daa520, #b8860b);
+}
+
+.highlight h2 {
+    color: #b8860b;
+    border-bottom-color: #daa520;
+}
+
+.highlight .verse {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(218, 165, 32, 0.15));
+    border-right-color: #daa520;
+    box-shadow: inset 0 1px 3px rgba(218, 165, 32, 0.1);
+}
+
+.section-header {
+    text-align: center;
+    margin: 40px 0 30px 0;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: #fff;
+    background: linear-gradient(135deg, #8b4513, #a0522d, #d2691e);
+    padding: 20px 40px;
+    border-radius: 50px;
+    display: inline-block;
+    box-shadow: 
+        0 10px 30px rgba(139, 69, 19, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(218, 165, 32, 0.3);
+    position: relative;
+}
+
+.section-header h2::before,
+.section-header h2::after {
+    content: '❋';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #daa520;
+    font-size: 1.2rem;
+}
+
+.section-header h2::before {
+    right: 15px;
+}
+
+.section-header h2::after {
+    left: 15px;
+}
+
+.dua {
+    background: linear-gradient(145deg, rgba(160, 82, 45, 0.1), rgba(139, 69, 19, 0.08));
+    border: 2px solid #cd853f;
+}
+
+.dua::before {
+    background: linear-gradient(90deg, #cd853f, #d2691e, #daa520);
+}
+
+.dua h2 {
+    color: #8b4513;
+    border-bottom-color: #cd853f;
+}
+
+.dua-text {
+    font-size: 1.8rem;
+    line-height: 2;
+    color: #4a4a4a;
+    text-align: justify;
+    margin-bottom: 18px;
+    padding: 18px;
+    background: linear-gradient(135deg, rgba(245, 222, 179, 0.4), rgba(255, 248, 220, 0.3));
+    border-radius: 12px;
+    border-right: 4px solid #cd853f;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.repetition {
+    text-align: center;
+    font-size: 1rem;
+    color: #8b4513;
+    font-weight: bold;
+    background: linear-gradient(135deg, rgba(218, 165, 32, 0.2), rgba(205, 133, 63, 0.15));
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: block;
+    margin: 20px auto 0 auto;
+    border: 1px solid rgba(218, 165, 32, 0.4);
+    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.1);
+    max-width: 150px;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 30px;
+    background: linear-gradient(145deg, rgba(255, 248, 220, 0.95), rgba(250, 240, 190, 0.9));
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 30px rgba(139, 69, 19, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(184, 134, 11, 0.2);
+}
+
+footer p {
+    font-size: 1.8rem;
+    color: #8b4513;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .verse, .dua-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+        padding: 12px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.7rem;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+    
+    .verse, .dua-text {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+
+/* إضافة تأثيرات روحانية إضافية */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(218, 165, 32, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 50% 50%, rgba(139, 69, 19, 0.03) 0%, transparent 30%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* تأثير النجوم الصغيرة */
+.container::before {
+    content: '✦ ✧ ✦ ✧ ✦';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(218, 165, 32, 0.3);
+    font-size: 0.8rem;
+    letter-spacing: 20px;
+    z-index: -1;
+}
+
+/* تحسين الخطوط العربية */
+.verse, .dua-text {
+    font-feature-settings: "liga" 1, "dlig" 1, "kern" 1;
+    text-rendering: optimizeLegibility;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .card {
+        background: white;
+        box-shadow: none;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+    }
+    
+    .card:hover {
+        transform: none;
+    }
+}
+
+/* تأثيرات إضافية للمظهر الروحاني */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap');
+
+/* تحسين الخط العربي */
+* {
+    font-family: 'Amiri', 'Scheherazade New', 'Times New Roman', serif;
+}
+
+/* إضافة تأثير الضوء الذهبي */
+.card:hover .golden-light {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.03), transparent);
+    transform: rotate(45deg);
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+
+
+/* تحسين المراجع */
+.reference {
+    position: relative;
+}
+
+.reference::before {
+    content: '◈';
+    margin-left: 8px;
+    color: #d4af37;
+    font-size: 0.8rem;
+}
+
+.reference::after {
+    content: '◈';
+    margin-right: 8px;
+    color: #d4af37;
+    font-size: 0.8rem;
+}
+
+/* تأثير الظلال الناعمة للنصوص */
+.verse {
+    position: relative;
+    overflow: hidden;
+}
+
+.verse::before {
+    font-family: 'Amiri', serif;
+    font-weight: bold;
+}
+
+.verse::after {
+    font-family: 'Amiri', serif;
+    font-weight: bold;
+}
+
+/* تحسين الأدعية */
+.dua-text::before {
+    content: '◉';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #cd853f;
+    font-size: 1rem;
+    opacity: 0.6;
+}
+
+/* تأثير التدرج في الخلفية */
+.container {
+    position: relative;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(ellipse at top, rgba(218, 165, 32, 0.1) 0%, transparent 70%),
+        radial-gradient(ellipse at bottom, rgba(139, 69, 19, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* تحسين الانتقالات */
+.card, .verse, .dua-text, .reference {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* تأثير الإضاءة الخفيفة */
+.highlight {
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* تحسين العناوين */
+h1, h2 {
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+}
+
+/* تأثير النبضة الخفيفة للعناصر المهمة */
+.highlight {
+    animation: gentle-pulse 4s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+    0%, 100% { 
+        box-shadow: 
+            0 12px 35px rgba(218, 165, 32, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+    50% { 
+        box-shadow: 
+            0 15px 40px rgba(218, 165, 32, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.7),
+            0 0 20px rgba(255, 215, 0, 0.1);
+    }
+}
+
+/* تحسين المسافات والتباعد */
+.verse {
+    margin: 20px 0;
+    padding: 25px;
+}
+
+.dua-text {
+    margin: 20px 0;
+    padding: 22px;
+}
+
+/* إضافة تأثير الذهب للحدود */
+.card, .highlight, .dua {
+    border-image: linear-gradient(45deg, #d4af37, #b8860b, #daa520, #cd853f) 1;
+}/* تن
+سيق العناصر الزخرفية */
+.decorative-border {
+    color: #8b4513;
+    font-size: 1.5rem;
+    letter-spacing: 20px;
+    text-align: center;
+    margin: 20px 0;
+    opacity: 1;
+    text-shadow: 
+        2px 2px 4px rgba(139, 69, 19, 0.6),
+        0 0 15px rgba(160, 82, 45, 0.4);
+    animation: gentle-glow 3s ease-in-out infinite alternate;
+    font-weight: bold;
+}
+
+@keyframes gentle-glow {
+    from {
+        text-shadow: 
+            0 0 15px rgba(212, 175, 55, 0.5),
+            0 0 25px rgba(255, 215, 0, 0.3);
+    }
+    to {
+        text-shadow: 
+            0 0 20px rgba(212, 175, 55, 0.7),
+            0 0 35px rgba(255, 215, 0, 0.5);
+    }
+}
+
+header .decorative-border:first-child {
+    margin-bottom: 20px;
+}
+
+header .decorative-border:last-child {
+    margin-top: 20px;
+}
+
+footer .decorative-border:first-child {
+    margin-bottom: 15px;
+}
+
+footer .decorative-border:last-child {
+    margin-top: 15px;
+}
+
+/* تحسين التمرير السلس */
+html {
+    scroll-behavior: smooth;
+}
+
+/* تأثير الانتقال السلس للصفحة */
+body {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* تأثير ظهور الكروت تدريجياً */
+.card {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+.card:nth-child(7) { animation-delay: 0.7s; }
+.card:nth-child(8) { animation-delay: 0.8s; }
+.card:nth-child(9) { animation-delay: 0.9s; }
+.card:nth-child(10) { animation-delay: 1s; }
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تحسين الاستجابة للأجهزة المحمولة */
+@media (max-width: 768px) {
+    .decorative-border {
+        font-size: 1rem;
+        letter-spacing: 10px;
+    }
+    
+    header .decorative-border,
+    footer .decorative-border {
+        margin: 10px 0;
+    }
+}
+
+/* تأثير خاص للمعوذات */
+.highlight .verse {
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.25), 
+        rgba(218, 165, 32, 0.2), 
+        rgba(255, 248, 220, 0.3));
+    border-right: 6px solid #ffd700;
+    box-shadow: 
+        inset 0 1px 3px rgba(218, 165, 32, 0.2),
+        0 0 15px rgba(255, 215, 0, 0.1);
+}
+
+/* تحسين قابلية القراءة */
+.verse, .dua-text {
+    word-spacing: 2px;
+    letter-spacing: 0.5px;
+}
+
+/* العلامات الإسلامية */
+.islamic-symbol {
+    color: #d4af37;
+    font-size: 1.2rem;
+    text-shadow: 
+        0 0 8px rgba(212, 175, 55, 0.8),
+        0 0 15px rgba(255, 215, 0, 0.6);
+    animation: gentle-glow 3s ease-in-out infinite alternate;
+    margin: 0 8px;
+}/* ت
+نسيق أزرار التشغيل الصوتي */
+.audio-controls {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.play-btn {
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Amiri', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.play-btn:hover {
+    background: linear-gradient(135deg, #b8860b, #daa520);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.play-btn:active {
+    transform: translateY(0);
+}
+
+.play-btn.playing {
+    background: linear-gradient(135deg, #cd853f, #d2691e);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+        box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6);
+    }
+}
+
+.play-icon {
+    font-size: 1.2rem;
+    display: inline-block;
+    min-width: 16px;
+}
+
+.play-text {
+    font-size: 1.1rem;
+}
+
+/* إخفاء عنصر الصوت الافتراضي */
+audio {
+    display: none;
+}
+
+/* تحسين التجاوب للأجهزة المحمولة */
+@media (max-width: 768px) {
+    .play-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .play-text {
+        font-size: 0.85rem;
+    }
+}/* إ
+ضافة نقوش إسلامية للخلفية */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(218, 165, 32, 0.05) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(139, 69, 19, 0.05) 2px, transparent 2px);
+    background-size: 50px 50px, 80px 80px;
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* تحسين الكروت بنقوش إسلامية */
+.card .top-border {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #d4af37 20%, 
+        #b8860b 40%, 
+        #daa520 60%, 
+        #cd853f 80%, 
+        transparent 100%);
+    opacity: 0.8;
+    border-radius: 20px 20px 0 0;
+}
+
+/* إضافة زخارف للعناوين */
+.card h2::before {
+    content: '❋ ';
+    color: #d4af37;
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+.card h2::after {
+    content: ' ❋';
+    color: #d4af37;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+/* تحسين المراجع */
+.reference {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #8b4513;
+    font-style: italic;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, rgba(218, 165, 32, 0.15), rgba(139, 69, 19, 0.1));
+    border-radius: 25px;
+    border: 2px solid rgba(218, 165, 32, 0.3);
+    display: inline-block;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+}
+
+/* تحسين أزرار التشغيل */
+.play-btn {
+    background: linear-gradient(135deg, #d4af37, #b8860b, #daa520);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Amiri', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.4s ease;
+    box-shadow: 
+        0 6px 20px rgba(212, 175, 55, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* تحسين الخطوط للأجهزة المحمولة */
+@media (max-width: 768px) {
+    .verse {
+        font-size: 1.8rem;
+        line-height: 2.5;
+        padding: 30px;
+    }
+    
+    .card::before {
+        font-size: 1.3rem;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .card::after {
+        font-size: 1.3rem;
+        bottom: 10px;
+        left: 10px;
+    }
+    
+    header h1 {
+        font-size: 3.2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.7rem;
+    }
+    
+    .card h2 {
+        font-size: 2rem;
+    }
+    
+    .reference {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .verse {
+        font-size: 1.6rem;
+        line-height: 2.3;
+        padding: 25px;
+    }
+    
+    .card::before {
+        font-size: 1.2rem;
+        top: 8px;
+        right: 8px;
+    }
+    
+    .card::after {
+        font-size: 1.2rem;
+        bottom: 8px;
+        left: 8px;
+    }
+    
+    header h1 {
+        font-size: 2.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .card h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* إضافة تأثير الضوء الذهبي المحسن */
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+        0 25px 50px rgba(139, 69, 19, 0.3),
+        0 0 40px rgba(218, 165, 32, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* تحسين الفوتر */
+footer p {
+    font-size: 2rem;
+    color: #8b4513;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+}
