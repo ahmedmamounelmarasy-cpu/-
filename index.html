@@ -1088,6 +1088,39 @@
                     });
                     // لا حاجة لإظهار أزرار هنا في التنقل العادي
                 }
+            } else if (event.key === ' ') {
+                // إيقاف/تشغيل الصوت عند الضغط على مفتاح المسطرة
+                event.preventDefault();
+                
+                // إذا كان هناك تشغيل شامل، أوقفه
+                if (isPlayingAll) {
+                    stopAllAudios();
+                } else {
+                    // إذا لم يكن هناك تشغيل شامل، ابحث عن أي صوت يعمل وأوقفه
+                    let audioStopped = false;
+                    document.querySelectorAll('audio').forEach(audio => {
+                        if (!audio.paused) {
+                            audio.pause();
+                            audio.currentTime = 0;
+                            
+                            // إعادة تعيين زر التشغيل
+                            const button = audio.previousElementSibling;
+                            const playIcon = button.querySelector('.play-icon');
+                            const playText = button.querySelector('.play-text');
+                            
+                            playIcon.textContent = '▶';
+                            playText.textContent = 'استمع للتلاوة';
+                            button.classList.remove('playing');
+                            
+                            audioStopped = true;
+                        }
+                    });
+                    
+                    // إذا لم يكن هناك صوت يعمل، ابدأ التشغيل الشامل
+                    if (!audioStopped) {
+                        playAllAudios();
+                    }
+                }
             }
         });
     </script>
